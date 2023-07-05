@@ -1,0 +1,47 @@
+############################
+# Versions
+############################
+[versions]
+# Kotlin
+kotlin = "1.8.21"
+
+# Android
+andoridPlugin = "8.0.2"
+
+
+
+
+
+############################
+# Libraries
+############################
+[libraries]
+# Kotlin
+kotlinPlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
+# Android
+androidPlugin = { module = "com.android.tools.build:gradle-api", version.ref = "andoridPlugin" }
+
+
+
+
+
+############################
+# Bundles
+############################
+[bundles]
+
+
+
+
+
+############################
+# Plugins
+############################
+[plugins]
+# Kotlin
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+
+# Android
+androidApplication = { id = "com.android.application", version.ref = "andoridPlugin" }
+androidLibrary = { id = "com.android.library", version.ref = "andoridPlugin" }
