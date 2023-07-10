@@ -1,0 +1,70 @@
+############################
+# Versions
+############################
+[versions]
+# Kotlin
+kotlin = "1.8.21"
+
+# Android
+andoridPlugin = "8.0.2"
+coreKtx = "1.9.0"
+activity = "1.6.1"
+composeBom = "2023.03.00"
+composeCompiler = "1.4.7"
+
+# Test
+junit = "4.13.2"
+
+
+
+
+
+############################
+# Libraries
+############################
+[libraries]
+# Kotlin
+kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+
+# Android
+androidPlugin = { module = "com.android.tools.build:gradle", version.ref = "andoridPlugin" }
+coreKtx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+activityCompose = { module = "androidx.activity:activity-compose", version.ref = "activity" }
+composeBom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
+composeMaterial = { module = "androidx.compose.material3:material3" }
+composeUITooling = { module = "androidx.compose.ui:ui-tooling" }
+composeUIToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" }
+
+# Test
+junit = { module = "junit:junit", version.ref = "junit" }
+
+
+
+
+
+############################
+# Bundles
+############################
+[bundles]
+compose = [
+    "composeMaterial",
+    "composeUITooling",
+    "composeUIToolingPreview",
+    "activityCompose"
+]
+
+
+
+
+
+############################
+# Plugins
+############################
+[plugins]
+# Kotlin
+# Kotlin
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+# Android
+androidApplication = { id = "com.android.application", version.ref = "andoridPlugin" }
+androidLibrary = { id = "com.android.library", version.ref = "andoridPlugin" }

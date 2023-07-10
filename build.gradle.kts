@@ -18,6 +18,10 @@ gradlePlugin {
             id = "com.vasanth.jacoco-android"
             implementationClass = "com.vasanth.jacocoandroid.JacocoAndroidPlugin"
         }
+        create("JacocoReportAggregationAndroidPlugin") {
+            id = "com.vasanth.jacoco-report-aggregation-android"
+            implementationClass = "com.vasanth.jacocoandroid.JacocoReportAggregationAndroidPlugin"
+        }
     }
 }
 
