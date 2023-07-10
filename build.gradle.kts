@@ -12,6 +12,15 @@ repositories {
     gradlePluginPortal()
 }
 
+gradlePlugin {
+    plugins {
+        create("JacocoAndroidPlugin") {
+            id = "com.vasanth.jacoco-android"
+            implementationClass = "com.vasanth.jacocoandroid.JacocoAndroidPlugin"
+        }
+    }
+}
+
 dependencies {
     // Kotlin
     implementation(libs.kotlinPlugin)
