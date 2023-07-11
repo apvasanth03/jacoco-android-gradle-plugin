@@ -1,5 +1,6 @@
 package com.vasanth.jacocoandroid
 
+import com.vasanth.jacocoandroid.extension.JacocoAndroidPluginExtension
 import com.vasanth.jacocoandroid.helper.constants.JacocoAndroidConstants.CONFIGURATION_NAME_CLASS_DIR_ELEMENTS
 import com.vasanth.jacocoandroid.helper.constants.JacocoAndroidConstants.CONFIGURATION_NAME_COVERAGE_DATA_ELEMENTS
 import com.vasanth.jacocoandroid.helper.constants.JacocoAndroidConstants.CONFIGURATION_NAME_SOURCE_DIR_ELEMENTS
@@ -36,13 +37,19 @@ import org.gradle.testing.jacoco.tasks.JacocoReport
  */
 class JacocoAndroidPlugin : Plugin<Project> {
 
+    val PLUGIN_EXTENSION_NAME = "jacocoAndroid"
+
     override fun apply(project: Project) {
         // Apply "Jacoco Plugin"
         applyJacocoPlugin(project = project)
 
+        // Create "Plugin Extension"
+        val pluginExtension = createPluginExtension(project = project)
+
         // Add "Jacoco Test Coverage Report Task".
         addJacocoTestCoverageReportTaskToAllBuildVariants(
-            project = project
+            project = project,
+            pluginExtension = pluginExtension
         )
 
         // Add "Outgoing Variants"
@@ -57,9 +64,21 @@ class JacocoAndroidPlugin : Plugin<Project> {
     }
 
     // region APPLY JACOCO PLUGIN
-    private fun applyJacocoPlugin(project: Project) {
+    private fun applyJacocoPlugin(
+        project: Project
+    ) {
         with(project) {
             pluginManager.apply(JacocoPlugin::class.java)
+        }
+    }
+    // endregion
+
+    // region CREATE PLUGIN EXTENSION
+    private fun createPluginExtension(
+        project: Project
+    ): JacocoAndroidPluginExtension {
+        return with(project) {
+            extensions.create(PLUGIN_EXTENSION_NAME, JacocoAndroidPluginExtension::class.java)
         }
     }
     // endregion
@@ -72,6 +91,7 @@ class JacocoAndroidPlugin : Plugin<Project> {
      */
     private fun addJacocoTestCoverageReportTaskToAllBuildVariants(
         project: Project,
+        pluginExtension: JacocoAndroidPluginExtension
     ) {
         with(project) {
             executeActionOnAllAndroidBuildVariants(project = project) { variant ->
@@ -102,6 +122,7 @@ class JacocoAndroidPlugin : Plugin<Project> {
                             directories.map {
                                 fileTree(it) {
                                     exclude(ANDROID_EXCLUDES)
+                                    exclude(pluginExtension.excludes)
                                 }
                             }
                         }

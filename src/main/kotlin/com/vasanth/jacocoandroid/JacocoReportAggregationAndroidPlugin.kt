@@ -1,5 +1,6 @@
 package com.vasanth.jacocoandroid
 
+import com.vasanth.jacocoandroid.extension.JacocoReportAggregationAndroidPluginExtension
 import com.vasanth.jacocoandroid.helper.constants.JacocoAndroidConstants.CONFIGURATION_NAME_CLASS_DIR_PATH
 import com.vasanth.jacocoandroid.helper.constants.JacocoAndroidConstants.CONFIGURATION_NAME_COVERAGE_DATA_PATH
 import com.vasanth.jacocoandroid.helper.constants.JacocoAndroidConstants.CONFIGURATION_NAME_SOURCE_DIR_PATH
@@ -37,7 +38,12 @@ import org.gradle.testing.jacoco.tasks.JacocoReport
  */
 class JacocoReportAggregationAndroidPlugin : Plugin<Project> {
 
+    val PLUGIN_EXTENSION_NAME = "jacocoReportAggregationAndroid"
+
     override fun apply(project: Project) {
+        // Create "Plugin Extension"
+        val pluginExtension = createPluginExtension(project = project)
+
         // Create "Resolvable Configuration" to Aggregate Artifacts.
         createResolvableConfigurationToAggregateArtifacts(
             project = project
@@ -45,8 +51,21 @@ class JacocoReportAggregationAndroidPlugin : Plugin<Project> {
 
         // Add "Aggregated Code Coverage Report" Task
         addAggregatedCodeCoverageReportTaskToAllBuildVariants(
-            project = project
+            project = project,
+            pluginExtension = pluginExtension
         )
+    }
+
+    // region CREATE PLUGIN EXTENSION
+    private fun createPluginExtension(
+        project: Project
+    ): JacocoReportAggregationAndroidPluginExtension {
+        return with(project) {
+            extensions.create(
+                PLUGIN_EXTENSION_NAME,
+                JacocoReportAggregationAndroidPluginExtension::class.java
+            )
+        }
     }
 
     // region ADD RESOLVABLE CONFIGURATION TO AGGREGATE ARTIFACTS
@@ -166,7 +185,8 @@ class JacocoReportAggregationAndroidPlugin : Plugin<Project> {
      * Task Name - "jacoco[VARIENT_NAME]AggregatedCodeCoverageReport"
      */
     private fun addAggregatedCodeCoverageReportTaskToAllBuildVariants(
-        project: Project
+        project: Project,
+        pluginExtension: JacocoReportAggregationAndroidPluginExtension
     ) {
         with(project) {
             executeActionOnAllAndroidBuildVariants(project = project) { variant ->
@@ -217,6 +237,7 @@ class JacocoReportAggregationAndroidPlugin : Plugin<Project> {
                             directories.map {
                                 fileTree(it) {
                                     exclude(ANDROID_EXCLUDES)
+                                    exclude(pluginExtension.excludes)
                                 }
                             }
                         }
@@ -230,6 +251,7 @@ class JacocoReportAggregationAndroidPlugin : Plugin<Project> {
                             .map {
                                 project.fileTree(it) {
                                     exclude(ANDROID_EXCLUDES)
+                                    exclude(pluginExtension.excludes)
                                 }
                             }
                     classDirectories.from(dependentClassDirs)

@@ -5,6 +5,7 @@ plugins {
     id("com.vasanth.jacoco-android")
 }
 
+// region ANDROID
 android {
     namespace = "com.vasanth.jacocoandroid.example"
     compileSdk = 33
@@ -55,6 +56,16 @@ android {
         }
     }
 }
+// endregion
+
+// region JACOCO
+jacocoAndroid {
+    excludes = listOf(
+        "**/ui/theme/**",
+        "**/*Activity*"
+    )
+}
+// endregion
 
 dependencies {
     // Kotlin

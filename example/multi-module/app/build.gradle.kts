@@ -6,6 +6,7 @@ plugins {
     id("com.vasanth.jacoco-report-aggregation-android")
 }
 
+// region Android
 android {
     namespace = "com.vasanth.jacocoandroid.example"
     compileSdk = 33
@@ -56,6 +57,16 @@ android {
         }
     }
 }
+// endregion
+
+// region JACOCO
+jacocoReportAggregationAndroid {
+    excludes = listOf(
+        "**/ui/theme/**",
+        "**/*Activity*"
+    )
+}
+// endregion
 
 dependencies {
     // Module
