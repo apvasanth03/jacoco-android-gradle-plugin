@@ -15,6 +15,9 @@ espresso-core = "3.5.1"
 appcompat = "1.6.1"
 material = "1.8.0"
 
+# Gradle
+gradlePluginPublish = "1.2.0"
+
 
 
 
@@ -58,4 +61,7 @@ kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 # Android
 androidApplication = { id = "com.android.application", version.ref = "andoridPlugin" }
 androidLibrary = { id = "com.android.library", version.ref = "andoridPlugin" }
-kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin1821" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+# Gradle
+gradlePluginPublish = { id = "com.gradle.plugin-publish", version.ref = "gradlePluginPublish" }
