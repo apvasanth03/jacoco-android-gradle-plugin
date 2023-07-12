@@ -23,6 +23,9 @@ plugins {
 }
 ```
 
+>Refer Plugin portal for latest version -
+> [io.github.apvasanth03.jacoco-report-aggregation-android](https://plugins.gradle.org/plugin/io.github.apvasanth03.jacoco-report-aggregation-android)
+
 > **Note :** This plugin takes no action unless JaCoCoAndroid Plugin is applied to All Modules (including App module &
 > All library modules)
 >

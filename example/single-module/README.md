@@ -16,7 +16,7 @@ The standard android project with single module.
 // app/build.gradle.kts
 
 plugins {
-    id("com.vasanth.jacoco-android")
+    id("io.github.apvasanth03.jacoco-android") version "0.1.0-alpha.1"
 }
 
 jacocoAndroid {

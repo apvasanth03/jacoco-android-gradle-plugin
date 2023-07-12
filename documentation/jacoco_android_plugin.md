@@ -1,6 +1,7 @@
 <!-- TOC -->
 
-* [The JacocoAndroid Plugin](#the-jacocoandroid-plugin)
+* [The JaCoCo Android Plugin](#the-jacoco-android-plugin)
+    * [Usage](#usage)
     * [Configuring the JaCoCoAndroid Plugin](#configuring-the-jacocoandroid-plugin)
     * [Configuring the JaCoCo Plugin](#configuring-the-jacoco-plugin)
     * [JaCoCo Report configuration](#jacoco-report-configuration)
@@ -13,6 +14,19 @@
 # The JaCoCo Android Plugin
 
 The JaCoCo Android plugin provides code coverage metrics for Android code
+
+## Usage
+
+To use the JaCoCoAndroid plugin, include the following in your build script:
+
+```kotlin
+plugins {
+    id("io.github.apvasanth03.jacoco-android") version "0.1.0-alpha.1"
+}
+```
+
+>Refer Plugin portal for latest version - 
+> [io.github.apvasanth03.jacoco-android](https://plugins.gradle.org/plugin/io.github.apvasanth03.jacoco-android)
 
 ## Configuring the JaCoCoAndroid Plugin
 
