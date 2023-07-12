@@ -228,7 +228,11 @@ class JacocoReportAggregationAndroidPlugin : Plugin<Project> {
                         CONFIGURATION_NAME_SOURCE_DIR_PATH.format(variantName)
                     )
                     val dependentSourceDirs =
-                        sourceDirPathConfiguration.incoming.artifactView { lenient(true) }.files
+                        sourceDirPathConfiguration.incoming.artifactView {
+                            lenient(true)
+                        }.files.filter {
+                            it.isDirectory
+                        }
                     sourceDirectories.from(dependentSourceDirs)
 
                     // Class Directories
@@ -247,13 +251,16 @@ class JacocoReportAggregationAndroidPlugin : Plugin<Project> {
                         CONFIGURATION_NAME_CLASS_DIR_PATH.format(variantName)
                     )
                     val dependentClassDirs =
-                        classDirPathConfiguration.incoming.artifactView { lenient(true) }.files
-                            .map {
-                                project.fileTree(it) {
-                                    exclude(ANDROID_EXCLUDES)
-                                    exclude(pluginExtension.excludes)
-                                }
+                        classDirPathConfiguration.incoming.artifactView {
+                            lenient(true)
+                        }.files.filter {
+                            it.isDirectory
+                        }.map {
+                            project.fileTree(it) {
+                                exclude(ANDROID_EXCLUDES)
+                                exclude(pluginExtension.excludes)
                             }
+                        }
                     classDirectories.from(dependentClassDirs)
                 }
             }

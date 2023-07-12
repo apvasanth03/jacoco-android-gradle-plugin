@@ -56,11 +56,6 @@ class JacocoAndroidPlugin : Plugin<Project> {
         addOutgoingVariantsForAllBuildVariants(
             project = project
         )
-
-        // Configure "JacocoReport" Task
-        configureJacocoReportTask(
-            project = project
-        )
     }
 
     // region APPLY JACOCO PLUGIN
@@ -261,22 +256,6 @@ class JacocoAndroidPlugin : Plugin<Project> {
                     outgoing.artifact(jacocoExecutionDataProvider) {
                         builtBy(unitTestTaskProvider)
                     }
-                }
-            }
-        }
-    }
-    // endregion
-
-    // region CONFIGURE "JacocoReport" TASK
-    private fun configureJacocoReportTask(
-        project: Project
-    ) {
-        with(project) {
-            tasks.withType(JacocoReport::class.java).configureEach {
-                // Reports
-                reports {
-                    xml.required.set(true)
-                    html.required.set(true)
                 }
             }
         }

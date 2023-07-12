@@ -27,9 +27,9 @@ gradlePlugin {
         }
         create("jacocoReportAggregationAndroidPlugin") {
             id = "com.vasanth.jacoco-report-aggregation-android"
-            displayName = "Jacoco Report Aggregation Android Plugin"
+            displayName = "JaCoCo Report Aggregation Android Plugin"
             description =
-                "The JacocoReportAggregationAndroidPlugin plugin provides code coverage metrics for multi-module Android project."
+                "The JaCoCoReportAggregationAndroidPlugin plugin provides code coverage metrics for multi-module Android project."
             tags.set(listOf("jacoco", "jacocoandroid", "codecoverage", "android"))
             implementationClass = "com.vasanth.jacocoandroid.JacocoReportAggregationAndroidPlugin"
         }
