@@ -1,4 +1,4 @@
-package com.vasanth.jacocoandroid.helper.extension
+package io.github.apvasanth03.jacocoandroid.helper.extension
 
 import com.android.build.api.attributes.BuildTypeAttr
 import com.android.build.api.attributes.ProductFlavorAttr

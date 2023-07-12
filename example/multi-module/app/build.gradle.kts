@@ -2,8 +2,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
-    id("com.vasanth.jacoco-android")
-    id("com.vasanth.jacoco-report-aggregation-android")
+    id("io.github.apvasanth03.jacoco-android")
+    id("io.github.apvasanth03.jacoco-report-aggregation-android")
 }
 
 // region Android

@@ -1,6 +1,6 @@
-package com.vasanth.jacocoandroid.extension
+package io.github.apvasanth03.jacocoandroid.extension
 
-import com.vasanth.jacocoandroid.JacocoReportAggregationAndroidPlugin
+import io.github.apvasanth03.jacocoandroid.JacocoReportAggregationAndroidPlugin
 
 /**
  * Extension for [JacocoReportAggregationAndroidPlugin]

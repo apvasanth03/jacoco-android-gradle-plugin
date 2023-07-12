@@ -1,8 +1,8 @@
-package com.vasanth.jacocoandroid.helper.extension
+package io.github.apvasanth03.jacocoandroid.helper.extension
 
 import com.android.build.api.variant.Variant
-import com.vasanth.jacocoandroid.helper.constants.JacocoAndroidConstants.TASK_NAME_JAVA_COMPILE
-import com.vasanth.jacocoandroid.helper.constants.JacocoAndroidConstants.TASK_NAME_KOTLIN_COMPILE
+import io.github.apvasanth03.jacocoandroid.helper.constants.JacocoAndroidConstants.TASK_NAME_JAVA_COMPILE
+import io.github.apvasanth03.jacocoandroid.helper.constants.JacocoAndroidConstants.TASK_NAME_KOTLIN_COMPILE
 import org.gradle.api.Project
 import org.gradle.api.file.Directory
 import org.gradle.api.provider.Provider

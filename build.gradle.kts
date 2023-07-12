@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.gradlePluginPublish)
 }
 
-group = "com.vasanth"
+group = "io.github.apvasanth03"
 version = "0.1.0-alpha.1"
 
 repositories {
@@ -19,19 +19,19 @@ gradlePlugin {
 
     plugins {
         create("jacocoAndroidPlugin") {
-            id = "com.vasanth.jacoco-android"
+            id = "io.github.apvasanth03.jacoco-android"
             displayName = "JaCoCo Android Plugin"
             description = "The JaCoCoAndroid plugin provides code coverage metrics for single-module Android project."
             tags.set(listOf("jacoco", "jacocoandroid", "codecoverage", "android"))
-            implementationClass = "com.vasanth.jacocoandroid.JacocoAndroidPlugin"
+            implementationClass = "io.github.apvasanth03.jacocoandroid.JacocoAndroidPlugin"
         }
         create("jacocoReportAggregationAndroidPlugin") {
-            id = "com.vasanth.jacoco-report-aggregation-android"
+            id = "io.github.apvasanth03.jacoco-report-aggregation-android"
             displayName = "JaCoCo Report Aggregation Android Plugin"
             description =
                 "The JaCoCoReportAggregationAndroidPlugin plugin provides code coverage metrics for multi-module Android project."
             tags.set(listOf("jacoco", "jacocoandroid", "codecoverage", "android"))
-            implementationClass = "com.vasanth.jacocoandroid.JacocoReportAggregationAndroidPlugin"
+            implementationClass = "io.github.apvasanth03.jacocoandroid.JacocoReportAggregationAndroidPlugin"
         }
     }
 }

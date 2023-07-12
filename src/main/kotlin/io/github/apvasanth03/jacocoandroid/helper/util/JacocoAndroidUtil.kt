@@ -1,4 +1,4 @@
-package com.vasanth.jacocoandroid.helper.util
+package io.github.apvasanth03.jacocoandroid.helper.util
 
 import com.android.build.api.variant.ApplicationAndroidComponentsExtension
 import com.android.build.api.variant.LibraryAndroidComponentsExtension

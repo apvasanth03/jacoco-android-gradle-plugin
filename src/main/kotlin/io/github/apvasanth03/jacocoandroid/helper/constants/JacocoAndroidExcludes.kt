@@ -1,4 +1,4 @@
-package com.vasanth.jacocoandroid.helper.constants
+package io.github.apvasanth03.jacocoandroid.helper.constants
 
 object JacocoAndroidExcludes {
 
