@@ -21,7 +21,7 @@ To use the JaCoCoAndroid plugin, include the following in your build script:
 
 ```kotlin
 plugins {
-    id("io.github.apvasanth03.jacoco-android") version "0.1.0-alpha.1"
+    id("io.github.apvasanth03.jacoco-android") version "0.1.0"
 }
 ```
 

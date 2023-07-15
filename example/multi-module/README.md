@@ -16,7 +16,7 @@ The standard android project with multi module.
 // library1/build.gradle.kts
 
 plugins {
-    id("io.github.apvasanth03.jacoco-android") version "0.1.0-alpha.1"
+    id("io.github.apvasanth03.jacoco-android") version "0.1.0"
 }
 ```
 
@@ -24,8 +24,8 @@ plugins {
 // app/build.gradle.kts
 
 plugins {
-    id("io.github.apvasanth03.jacoco-android") version "0.1.0-alpha.1"
-    id("io.github.apvasanth03.jacoco-report-aggregation-android") version "0.1.0-alpha.1"
+    id("io.github.apvasanth03.jacoco-android") version "0.1.0"
+    id("io.github.apvasanth03.jacoco-report-aggregation-android") version "0.1.0"
 }
 
 jacocoAndroid {
