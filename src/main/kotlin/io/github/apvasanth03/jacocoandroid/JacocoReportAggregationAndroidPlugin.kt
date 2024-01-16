@@ -250,7 +250,7 @@ class JacocoReportAggregationAndroidPlugin : Plugin<Project> {
                     val classDirPathConfiguration = project.configurations.getByName(
                         CONFIGURATION_NAME_CLASS_DIR_PATH.format(variantName)
                     )
-                    val dependentClassDirs =
+                    val dependentClassDirs = project.provider {
                         classDirPathConfiguration.incoming.artifactView {
                             lenient(true)
                         }.files.filter {
@@ -261,6 +261,7 @@ class JacocoReportAggregationAndroidPlugin : Plugin<Project> {
                                 exclude(pluginExtension.excludes)
                             }
                         }
+                    }
                     classDirectories.from(dependentClassDirs)
                 }
             }
