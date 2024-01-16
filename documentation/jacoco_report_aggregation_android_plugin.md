@@ -19,7 +19,7 @@ To use the JaCoCoReportAggregationAndroid plugin, include the following in your 
 
 ```kotlin
 plugins {
-    id("com.vasanth.jacoco-report-aggregation-android")  version "0.1.0"
+    id("com.vasanth.jacoco-report-aggregation-android")  version "0.1.1"
 }
 ```
 
